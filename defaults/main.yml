@@ -1,2 +1,3 @@
 ---
-# defaults file for ansible-role-singularity
+# Singularity version to install
+singularity_version: '3.7.0'
