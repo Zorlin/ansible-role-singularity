@@ -66,3 +66,8 @@
   args:
     chdir: "/usr/local/src/singularity-{{ singularity_version }}/singularity"
     creates: "/usr/local/src/singularity-{{ singularity_version }}/singularity/builddir/singularity"
+
+- name: Install Singularity
+  command: "make -C ./builddir install"
+  args:
+    chdir: "/usr/local/src/singularity-{{ singularity_version }}/singularity"
