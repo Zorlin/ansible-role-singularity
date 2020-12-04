@@ -41,5 +41,5 @@
 - name: Unpack Singularity
   unarchive:
     remote_src: yes
-    dest: /usr/local/src/
+    dest: "/usr/local/src/{{ singularity_version }}"
     src: "/usr/local/src/{{ singularity_tarball_filename }}"
