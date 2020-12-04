@@ -4,9 +4,19 @@
 - name: Verify
   hosts: all
   gather_facts: false
-  tasks:
 
-  - name: Demo assertions check
+  vars:
+    - singularity_version: '3.7.0'
+
+  tasks:
+  - name: Check the installed version of Singularity
+    command: singularity --version
+    register: singularity_version_check
+    changed_when: false
+    check_mode: no
+
+  - name: Assertions checks
     assert:
       that:
-        - 0 == 0
+        # Check that the installed version of Singularity is the one we want
+        - singularity_version_check.stdout_lines | select('match', 'singularity version {{ singularity_version }}') | list | length != 0
