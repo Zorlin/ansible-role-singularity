@@ -1,0 +1,14 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: singularity
+  author: zorlin
+  description: "Install and configure Singularity"
+  company: GetGlass.io
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 7
