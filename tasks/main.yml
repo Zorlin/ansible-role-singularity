@@ -17,16 +17,16 @@
     that:
       - "singularity_tarball_checksum not in (None, '')"
 
-# Install dependencies
-- name: Install dependencies needed to build Singularity
-  package:
-    name:
-      "{{ singularity_build_dependencies }}"
-    state: present
-
 - name: Output some debug var stuff
   debug:
     msg:
       - "Singularity version {{ singularity_version }}"
       - "Singularity checksum {{ singularity_tarball_checksum }}"
       - "Singularity filename {{ singularity_tarball_filename }}"
+
+# Install dependencies
+- name: Install dependencies needed to build Singularity
+  package:
+    name:
+      "{{ singularity_build_dependencies }}"
+    state: present
