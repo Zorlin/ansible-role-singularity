@@ -50,6 +50,6 @@
 - name: Unpack Singularity
   unarchive:
     remote_src: true
-    dest: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_version }}"
+    dest: "/usr/local/src/singularity-{{ singularity_version }}"
     src: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_tarball_filename }}"
     mode: 0755
