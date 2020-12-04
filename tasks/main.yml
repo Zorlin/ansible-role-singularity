@@ -33,12 +33,12 @@
 
 # Create a version-specific folder for downloading and building Singularity
 - name: Create a folder for downloading and building Singularity
-    file:
-      path: /usr/local/src/singularity-{{ singularity_version }}
-      state: directory
-      owner: root
-      group: root
-      mode: '0755'
+  file:
+    path: /usr/local/src/singularity-{{ singularity_version }}
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
 
 # Download Singularity
 - name: Download Singularity
@@ -49,6 +49,7 @@
 
 - name: Unpack Singularity
   unarchive:
-    remote_src: yes
+    remote_src: true
     dest: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_version }}"
     src: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_tarball_filename }}"
+    mode: 0755
