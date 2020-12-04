@@ -55,7 +55,7 @@
 
 # Build and install Singularity
 - name: Run makeit mconfig
-  command: "./mconfig"
+  shell: "./mconfig"
   args:
     chdir: "/usr/local/src/singularity-{{ singularity_version }}/singularity"
     creates: "/usr/local/src/singularity-{{ singularity_version }}/singularity/builddir/Makefile"
