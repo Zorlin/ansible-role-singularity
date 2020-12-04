@@ -9,14 +9,14 @@
     - singularity_version: '3.7.0'
 
   tasks:
-  - name: Check the installed version of Singularity
-    command: singularity --version
-    register: singularity_version_check
-    changed_when: false
-    check_mode: no
+    - name: Check the installed version of Singularity
+      command: singularity --version
+      register: singularity_version_check
+      changed_when: false
+      check_mode: false
 
-  - name: Assertions checks
-    assert:
-      that:
-        # Check that the installed version of Singularity is the one we want
-        - singularity_version_check.stdout_lines | select('match', 'singularity version {{ singularity_version }}') | list | length != 0
+    - name: Assertions checks
+      assert:
+        that:
+          # Check that the installed version of Singularity is the one we want
+          - singularity_version_check.stdout_lines | select('match', 'singularity version {{ singularity_version }}') | list | length != 0
