@@ -1,0 +1,10 @@
+---
+singularity_build_dependencies:
+  - '@Development Tools'
+  - openssl-devel
+  - libuuid-devel
+  - libseccomp-devel
+  - wget
+  - squashfs-tools
+  - cryptsetup
+

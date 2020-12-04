@@ -1,12 +1,15 @@
 ---
 # tasks file for ansible-role-singularity
 
-# Conditionally load in needed configuration variables
+# Conditionally load in variables for chosen version of Singularity
 - name: load version vars
   with_first_found:
     - '../vars/versions/{{ singularity_version }}.yml'
     - ../vars/versions/default.yml
   include_vars: '{{ item }}'
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
 
 # Check that we have valid information about the version we are trying to install
 - name: assert version vars
@@ -14,7 +17,12 @@
     that:
       - "singularity_tarball_checksum not in (None, '')"
 
-# grab https://github.com/hpcng/singularity/releases/download/v3.7.0/singularity-3.7.0.tar.gz
+# Install dependencies
+- name: Install dependencies needed to build Singularity
+  package:
+    name:
+      "{{ singularity_build_dependencies }}"
+    state: present
 
 - name: Output some debug var stuff
   debug:
