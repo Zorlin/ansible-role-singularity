@@ -7,4 +7,3 @@ singularity_build_dependencies:
   - wget
   - squashfs-tools
   - cryptsetup
-
