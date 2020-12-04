@@ -35,4 +35,8 @@ MIT
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+This role was created in 2020 by Benjamin Arntzen.
+
+This role uses examples and code from [geerlingguy.awx](https://github.com/geerlingguy/ansible-role-awx) which was written by Jeff Geerling and is available under the MIT license.
+
+This role uses examples and code from [gantsign.golang](https://github.com/gantsign/ansible-role-golang) which was written by John Freeman / GantSign Ltd and is available under the MIT license.
