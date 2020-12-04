@@ -60,3 +60,9 @@
   args:
     chdir: "/usr/local/src/singularity-{{ singularity_version }}/singularity"
     creates: "/usr/local/src/singularity-{{ singularity_version }}/singularity/builddir/Makefile"
+
+- name: Compile Singularity
+  command: "make -C ./builddir"
+  args:
+    chdir: "/usr/local/src/singularity-{{ singularity_version }}/singularity"
+    creates: "/usr/local/src/singularity-{{ singularity_version }}/singularity/builddir/singularity"
