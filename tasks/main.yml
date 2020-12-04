@@ -31,15 +31,24 @@
       "{{ singularity_build_dependencies }}"
     state: present
 
+# Create a version-specific folder for downloading and building Singularity
+- name: Create a folder for downloading and building Singularity
+    file:
+      path: /usr/local/src/singularity-{{ singularity_version }}
+      state: directory
+      owner: root
+      group: root
+      mode: '0755'
+
 # Download Singularity
 - name: Download Singularity
   get_url:
     url: "https://github.com/hpcng/singularity/releases/download/v{{ singularity_version }}/singularity-{{ singularity_version }}.tar.gz"
-    dest: "/usr/local/src/{{ singularity_tarball_filename }}"
+    dest: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_tarball_filename }}"
     checksum: "sha256:{{ singularity_tarball_checksum }}"
 
 - name: Unpack Singularity
   unarchive:
     remote_src: yes
-    dest: "/usr/local/src/{{ singularity_version }}"
-    src: "/usr/local/src/{{ singularity_tarball_filename }}"
+    dest: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_version }}"
+    src: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_tarball_filename }}"
