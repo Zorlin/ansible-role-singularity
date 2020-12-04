@@ -55,7 +55,7 @@
 
 # Build and install Singularity
 - name: Run makeit mconfig
-  shell: "./mconfig"
+  shell: ". /etc/profile.d/golang.sh ; ./mconfig"
   args:
     chdir: "/usr/local/src/singularity-{{ singularity_version }}/singularity"
     creates: "/usr/local/src/singularity-{{ singularity_version }}/singularity/builddir/Makefile"
