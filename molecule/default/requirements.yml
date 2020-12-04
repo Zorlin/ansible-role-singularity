@@ -1,0 +1,6 @@
+---
+- name: geerlingguy.git
+- name: gantsign.golang
+- name: zorlin.singularity
+  src: https://github.com/Zorlin/ansible-role-singularity
+  version: main
