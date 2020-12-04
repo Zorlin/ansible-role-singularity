@@ -9,6 +9,6 @@
     - include_tasks: environment-prep.yml
 
   roles:
+    - zorlin.singularity
     - geerlingguy.git
     - gantsign.golang
-    - zorlin.singularity
