@@ -52,6 +52,7 @@
     remote_src: true
     dest: "/usr/local/src/singularity-{{ singularity_version }}"
     src: "/usr/local/src/singularity-{{ singularity_version }}/{{ singularity_tarball_filename }}"
+    creates: "/usr/local/src/singularity-{{ singularity_version }}/singularity"
 
 # Build and install Singularity
 - name: Run makeit mconfig
