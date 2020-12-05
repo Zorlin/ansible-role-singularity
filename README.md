@@ -1,17 +1,42 @@
-Role Name
-=========
+Ansible Role: Singularity
+=========================
 
-A brief description of the role goes here.
+![CI](https://github.com/Zorlin/ansible-role-singularity/workflows/CI/badge.svg)
+
+This role automatically configures and installs Singularity from source.
+
+It currently only supports the latest version of Singularity, but will soon support at least the previous version.
+
+This role currently officially supports:
+
+* CentOS 7, CentOS 8
+* Debian 9, Debian 10
+* Ubuntu 18.04, Ubuntu 20.04
+
+It should also run on Red Hat Enterprise Linux but is untested on it.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Before this role runs, you need to make sure the following dependencies are installed:
+
+| Dependency                    | Suggested Role           |
+| ----------------------------- | ------------------------ |
+| Golang                        | `gantsign.golang`        |
+| Git                           | `geerlingguy.git`        |
+
+Currently you MUST use gantsign.golang to install Golang/Go Runtime.
+
+See this role's [`molecule/default/converge.yml`](molecule/default/converge.yml) playbook for an example that works across many different OSes.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Available variables are listed below, along with default values (see `defaults/main.yml`):
+
+    singularity_version: '3.7.0'
+
+In future you will be able to change singularity_version to select which version you want to install, but this doesn't do anything yet.
 
 Dependencies
 ------------
@@ -21,11 +46,19 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Example Playbook
+----------------
+
+```yaml
+- name: Install Singularity
+  hosts: all
+  become: true
+
+  roles:
+    - gantsign.golang
+    - zorlin.singularity
+```
 
 License
 -------
