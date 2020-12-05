@@ -34,7 +34,7 @@ jobs:
           yamllint .
           ansible-lint
 
-  molecule:
+  molecule_stable:
     name: Molecule (stable)
     runs-on: ubuntu-latest
     strategy:
@@ -86,7 +86,7 @@ jobs:
           MOLECULE_DISTRO: ${{ matrix.distro }}
           MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
 
-  molecule:
+  molecule_oldstable:
     name: Molecule (oldstable)
     runs-on: ubuntu-latest
     strategy:
@@ -138,7 +138,7 @@ jobs:
           MOLECULE_DISTRO: ${{ matrix.distro }}
           MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
 
-  molecule:
+  molecule_oldoldstable:
     name: Molecule (oldoldstable)
     runs-on: ubuntu-latest
     strategy:
