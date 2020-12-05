@@ -39,6 +39,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        molecule-scenario:
+          # Test the latest 3 minor releases of Singularity
+          - default
+          - oldstable
+          - oldoldstable
         include:
           # Test all distros we support
           - distro: centos7
