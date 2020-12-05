@@ -48,16 +48,22 @@ jobs:
           # Test all distros we support
           - distro: centos7
             playbook: converge.yml
+            molecule-scenario: default
           - distro: centos8
             playbook: converge.yml
+            molecule-scenario: default
           - distro: ubuntu1804
             playbook: converge.yml
+            molecule-scenario: default
           - distro: ubuntu2004
             playbook: converge.yml
+            molecule-scenario: default
           - distro: debian9
             playbook: converge.yml
+            molecule-scenario: default
           - distro: debian10
             playbook: converge.yml
+            molecule-scenario: default
 
     steps:
       - name: Check out the codebase.
